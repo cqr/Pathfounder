@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  stat: 
+  player: 
+  value: 1
+
+two:
+  stat: 
+  player: 
+  value: 1

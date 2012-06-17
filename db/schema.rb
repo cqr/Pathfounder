@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120617172623) do
+ActiveRecord::Schema.define(:version => 20120617183920) do
+
+  create_table "base_stats", :force => true do |t|
+    t.integer  "stat_id"
+    t.integer  "player_id"
+    t.integer  "value"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "base_stats", ["player_id"], :name => "index_base_stats_on_player_id"
+  add_index "base_stats", ["stat_id"], :name => "index_base_stats_on_stat_id"
 
   create_table "bonus", :force => true do |t|
     t.integer  "source_id"
@@ -36,6 +47,15 @@ ActiveRecord::Schema.define(:version => 20120617172623) do
     t.datetime "updated_at", :null => false
     t.integer  "game_id"
   end
+
+  create_table "players", :force => true do |t|
+    t.string   "name"
+    t.integer  "game_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "players", ["game_id"], :name => "index_players_on_game_id"
 
   create_table "races", :force => true do |t|
     t.integer  "game_id"
