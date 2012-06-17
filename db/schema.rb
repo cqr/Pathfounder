@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120617183920) do
+ActiveRecord::Schema.define(:version => 20120617195325) do
 
   create_table "base_stats", :force => true do |t|
     t.integer  "stat_id"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(:version => 20120617183920) do
     t.integer  "game_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "race_id"
   end
 
   add_index "players", ["game_id"], :name => "index_players_on_game_id"
@@ -71,6 +72,7 @@ ActiveRecord::Schema.define(:version => 20120617183920) do
     t.string   "short_name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "game_id"
   end
 
 end
