@@ -1,6 +1,6 @@
 class Player < ActiveRecord::Base
   belongs_to :game
-  has_many :base_stats, :auto_save => true do
+  has_many :base_stats, :autosave => true do
     def [](short_name)
        where(stats:{short_name:short_name}).joins(:stat).first.try :value
     end
@@ -14,4 +14,7 @@ class Player < ActiveRecord::Base
   belongs_to :race
   belongs_to :player_class
 
+  def inspect
+   super.sub(/>$/, ", " + base_stats.map{|x| "#{x.short_name}: #{x.value}"}.join(', ') + ">")
+  end
 end
